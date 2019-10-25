@@ -1,3 +1,3 @@
-## Express Chat server
+## Express Stocks server
 
-Deployed at [chat-server.pamo18.me](https://chat-server.pamo18.me)
+Deployed at [stocks-server.pamo18.me](https://stocks-server.pamo18.me)
