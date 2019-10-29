@@ -18,13 +18,13 @@ app.use("/", index);
 
 stock.reset();
 
-// io.origins(['https://pamocoin.pamo18.me:443']);
+io.origins(['https://pamocoin.pamo18.me:443']);
 
 let pamocoinkr = {
     name: "PamoCoin to kr",
     coin: "pamocoin",
-    rate: 1.002,
-    variance: 0.8,
+    rate: 1.001,
+    variance: 1.2,
     price: 20,
     currency: "krona"
 };
@@ -32,8 +32,8 @@ let pamocoinkr = {
 let pamocoinbth = {
     name: "PamoCoin to BTHCoin",
     coin: "pamocoin",
-    rate: 1.001,
-    variance: 1.2,
+    rate: 1.002,
+    variance: 0.8,
     price: 10,
     currency: "bthcoin"
 };
@@ -41,8 +41,8 @@ let pamocoinbth = {
 let bthcoinkr = {
     name: "BTHCoin to kr",
     coin: "bthcoin",
-    rate: 1.002,
-    variance: 0.8,
+    rate: 1.001,
+    variance: 1.2,
     price: 20,
     currency: "krona"
 };
@@ -50,8 +50,8 @@ let bthcoinkr = {
 let bthcoinpamo = {
     name: "BTHCoin to PamoCoin",
     coin: "bthcoin",
-    rate: 1.001,
-    variance: 1.2,
+    rate: 1.002,
+    variance: 0.8,
     price: 10,
     currency: "pamocoin"
 };

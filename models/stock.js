@@ -14,8 +14,12 @@ const stock = {
         let start = input.price;
         let rate = input.rate;
         let variance = input.variance;
+
         if (start < 5) {
             return start * rate + variance;
+        } else if (start > 100) {
+             rate = 1;
+             return start * rate + variance * stock.randomAroundZero();
         } else {
             return start * rate + variance * stock.randomAroundZero();
         }
