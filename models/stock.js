@@ -8,7 +8,7 @@ const dsn =  "mongodb://localhost:27017/stock";
 
 const stock = {
     randomAroundZero: function () {
-        return Math.random() > 0.5 ? 1 : -1;
+        return Math.random() < 0.5 ? -1 : 1;
     },
     getStockPrice: function (input) {
         let start = input.price;
