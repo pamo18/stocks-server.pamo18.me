@@ -17,9 +17,6 @@ const stock = {
 
         if (start < 5) {
             return start * rate + variance;
-        } else if (start > 100) {
-             rate = 1;
-             return start * rate + variance * stock.randomAroundZero();
         } else {
             return start * rate + variance * stock.randomAroundZero();
         }
@@ -30,7 +27,7 @@ const stock = {
         const count = await db.collection('stocks').countDocuments();
         let res;
 
-        if (count < 500) {
+        if (count < 34560) {
             res = await db.collection('stocks').insertOne({stocks: input});
         } else {
             res = await stock.reset();
@@ -40,11 +37,11 @@ const stock = {
 
         return res;
     },
-    restore: async function () {
+    simulate: async function () {
         const client  = await mongo.connect(dsn);
         const db = await client.db();
         const col = await db.collection('stocks');
-        const res = await col.find().toArray();
+        const res = await col.find().limit(500).toArray();
 
         await client.close();
 

@@ -23,7 +23,7 @@ io.origins(['https://pamocoin.pamo18.me:443']);
 let pamocoinkr = {
     name: "PamoCoin to kr",
     coin: "pamocoin",
-    rate: 1.001,
+    rate: 1.0001,
     variance: 1.2,
     price: 20,
     currency: "krona"
@@ -32,7 +32,7 @@ let pamocoinkr = {
 let pamocoinbth = {
     name: "PamoCoin to BTHCoin",
     coin: "pamocoin",
-    rate: 1.002,
+    rate: 1.0002,
     variance: 0.8,
     price: 10,
     currency: "bthcoin"
@@ -41,7 +41,7 @@ let pamocoinbth = {
 let bthcoinkr = {
     name: "BTHCoin to kr",
     coin: "bthcoin",
-    rate: 1.001,
+    rate: 1.0001,
     variance: 1.2,
     price: 20,
     currency: "krona"
@@ -50,7 +50,7 @@ let bthcoinkr = {
 let bthcoinpamo = {
     name: "BTHCoin to PamoCoin",
     coin: "bthcoin",
-    rate: 1.002,
+    rate: 1.0002,
     variance: 0.8,
     price: 10,
     currency: "pamocoin"
@@ -76,8 +76,8 @@ io.on('connection', function (socket) {
         updateStocks();
     });
 
-    socket.on('restore', async function () {
-        let data = await stock.restore();
+    socket.on('simulate', async function () {
+        let data = await stock.simulate();
         data.forEach(function(row) {
             socket.emit("stocks", row.stocks);
         })
@@ -86,6 +86,6 @@ io.on('connection', function (socket) {
 
 setInterval(function () {
     updateStocks();
-}, 2000);
+}, 5000);
 
 server.listen(8336);
