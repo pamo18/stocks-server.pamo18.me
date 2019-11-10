@@ -17,6 +17,8 @@ const stock = {
 
         if (start < 5) {
             return start * rate + variance;
+        } else if (start > 600 ){
+            return start - 500;
         } else {
             return start * rate + variance * stock.randomAroundZero();
         }
@@ -41,11 +43,11 @@ const stock = {
         const client  = await mongo.connect(dsn);
         const db = await client.db();
         const col = await db.collection('stocks');
-        const res = await col.find().limit(500).toArray();
+        const res = await col.find().limit(500).sort({$natural: -1}).toArray();
 
         await client.close();
 
-        return res;
+        return res.reverse();
     },
     reset: async function () {
         const client  = await mongo.connect(dsn);
